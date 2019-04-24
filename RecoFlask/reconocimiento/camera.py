@@ -23,7 +23,7 @@ class VideoCamera(object):
 
 		#cargamos la plantilla e inicializamos la webcam
 		#face_cascade = cv2.CascadeClassifier('haarcascades/frontalface_default.xml')
-		self.video = cv2.VideoCapture("http://192.168.0.25:4747/mjpegfeed?640x480")
+		self.video = cv2.VideoCapture("http://10.148.247.43:4849/video")
 
 
 	def __del__(self):
