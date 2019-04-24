@@ -1,4 +1,6 @@
 # RecoFlask
+Aplicación WEB en Flask que utiliza [OpenCV](https://opencv.org/opencv-2-4-8/) para realizar el reconocimiento de rosotros obtenidos de un *stream* remoto.
+ 
 
 ## Instalación
 En la carpeta raiz realizar el comando
