@@ -5,6 +5,6 @@ setup(
     packages=['RecoFlask','Camera'],
     include_package_data=True,
     install_requires=[
-        'flask',
+        'flask','opencv-python','opencv-contrib-python'
     ],
 )

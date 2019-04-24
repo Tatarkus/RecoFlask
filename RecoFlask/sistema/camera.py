@@ -25,7 +25,7 @@ class VideoCamera(object):
 
 		#cargamos la plantilla e inicializamos la webcam
 		face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-		self.video = cv2.VideoCapture(0)
+		self.video = cv2.VideoCapture("F:\Downloads\test.mp4")
 
 
 	def __del__(self):

@@ -13,19 +13,19 @@ class VideoCamera(object):
 
 	def __init__(self):
 		#Directorio donde se encuentra la carpeta con el nombre de la persona
-		dir_faces = 'att_faces/orl_faces'
+		dir_faces = 'faces'
 		self.path = os.path.join(dir_faces, nombre)
-
+		print(self.path)
 
 
 
 		#Si no hay una carpeta con el nombre ingresado entonces se crea
-		if not os.path.isdir(self.path):
-		    os.mkdir(self.path)
+		#if not os.path.isdir(self.path):
+		#    os.mkdir(self.path)
 
 		#cargamos la plantilla e inicializamos la webcam
 		face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-		self.video = cv2.VideoCapture(0)
+		self.video = cv2.VideoCapture("F:\Downloads\test.mp4")
 
 
 	def __del__(self):
