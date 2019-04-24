@@ -7,7 +7,7 @@ import numpy
 import sys
 nombre = "prueba"
 
-face_cascade = cv2.CascadeClassifier('Camara/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('RecoFlask\\reconocimiento\\haarcascades\\frontalface_default.xml')
 
 class VideoCamera(object):
 
@@ -15,17 +15,15 @@ class VideoCamera(object):
 		#Directorio donde se encuentra la carpeta con el nombre de la persona
 		dir_faces = 'faces'
 		self.path = os.path.join(dir_faces, nombre)
-		print(self.path)
-
 
 
 		#Si no hay una carpeta con el nombre ingresado entonces se crea
-		#if not os.path.isdir(self.path):
-		#    os.mkdir(self.path)
+		if not os.path.isdir(self.path):
+		    os.mkdir(self.path)
 
 		#cargamos la plantilla e inicializamos la webcam
-		face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-		self.video = cv2.VideoCapture("F:\Downloads\test.mp4")
+		#face_cascade = cv2.CascadeClassifier('haarcascades/frontalface_default.xml')
+		self.video = cv2.VideoCapture("http://192.168.0.30:4747/mjpegfeed?320x240")
 
 
 	def __del__(self):
@@ -34,18 +32,28 @@ class VideoCamera(object):
 
 	def get_frame(self):
 		#Tamaño para reducir a miniaturas las fotografias
+
 		img_width, img_height = 112, 92
 		size = 4
 
 		success, image = self.video.read()
 
-		image = cv2.flip(image, 1, 0)
+		if(not success):
+			print("No se pudo leer la fuente.")
+			return None
+
+		if(face_cascade.empty()):
+			print("No se pudo leer el Haar Cascade.")
+			return None
+
+		#image = cv2.flip(image, 1, 0)
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		#redimensionar la imagen
 		mini = cv2.resize(gray, (int(gray.shape[1] / size), int(gray.shape[0] / size)))
 
-		
-		faces = faces = face_cascade.detectMultiScale(mini)
+
+
+		faces = face_cascade.detectMultiScale(mini)
 		faces = sorted(faces, key=lambda x: x[3])
 		face_resize = cv2.resize(image, (img_width, img_height))
 
