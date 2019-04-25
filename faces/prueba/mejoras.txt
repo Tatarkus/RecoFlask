@@ -1,0 +1,20 @@
+Este documento menciona varios diseños para implementar la solución
+del reconocimiento de rostros de forma remota.
+
+El prototipo funciona actualmente de la siguiente forma.
+
+La aplicación web en flask captura un video utilizando cv2 (OpenCV).
+El video es publicado en la red local* por una aplicación android (IP WebCam).
+El servidor hace el procesamiento cuadro a cuadro para detectar una cara y dibuja un rectangulo al rededor de la cara.
+El nuevo cuadro (con el rectangulo si es que hay reconocimiento) se entrega como una "Response" en flask a un template.
+
+*Se puede publicar en internet, pero hay que configurar esta opción en la aplicación.
+
+
+Posibles mejoras incluyen,
+
+1. Desarrollo de una aplicación para Android que permita mayor control sobre el feed de video.
+2. Implementar el soporte para más de una conexión simultanea. Habría que establecer una conexión con cada cliente.
+3. Opción de usar la camara frontal.
+4. En vez de que se mande el cuadro completo despues de procesar la imagen se podría enviar solo el rectangulo al cliente y superponerlo al
+feed de la camara. Esta implementación tiene sentido si se quisiera que las personas puedan ver si son detectadas con la camara.
