@@ -18,10 +18,9 @@ python run.py
 Descargar en el dispositivo móvil la aplicación [DroidCam](https://play.google.com/store/apps/details?id=com.dev47apps.droidcam&hl=en).
 
 Alternativamente se puede usar la aplicación [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_US) de la misma forma, la URL a pegar será la que se muestre en la aplicación seguido de /video. 
-### Ejemplo:
 
 ```
-http://192.168.0.25:4747/video")
+http://192.168.0.25:4747/video
 ```
 
 Copiar la url del feed de video en la parte que corresponde dentro del archivo camara.py.
