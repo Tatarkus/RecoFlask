@@ -30,3 +30,5 @@ Copiar la url del feed de video en la parte que corresponde dentro del archivo c
 self.video = cv2.VideoCapture("http://192.168.0.25:4747/mjpegfeed?640x480")
 ```
 Ambos dispositivos (servidor y camara) deben estar en red o visibles por internet.
+
+### Matías Fuentes
